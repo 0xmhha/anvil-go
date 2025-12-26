@@ -49,7 +49,7 @@ func createGenesisBlock() *types.Block {
 		Coinbase:   common.HexToAddress("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"),
 	}
 	hasher := trie.NewStackTrie(nil)
-	return types.NewBlock(header, nil, nil, nil, hasher)
+	return types.NewBlock(header, nil, nil, hasher)
 }
 
 func makeRequest(t *testing.T, server *Server, method string, params interface{}) *httptest.ResponseRecorder {

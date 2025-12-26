@@ -153,7 +153,8 @@ func (m *SimpleMiner) mineBlockWithTxs(txs []*types.Transaction) (*types.Block, 
 
 	// Create block with trie hasher
 	hasher := trie.NewStackTrie(nil)
-	block := types.NewBlock(header, successful, nil, receipts, hasher)
+	body := &types.Body{Transactions: successful}
+	block := types.NewBlock(header, body, receipts, hasher)
 
 	// Add to chain
 	if err := m.chain.AddBlock(block); err != nil {

@@ -66,7 +66,7 @@ func createGenesisBlock() *types.Block {
 		Coinbase:   common.HexToAddress("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"),
 	}
 	hasher := trie.NewStackTrie(nil)
-	return types.NewBlock(header, nil, nil, nil, hasher)
+	return types.NewBlock(header, nil, nil, hasher)
 }
 
 func makeRPCRequest(t *testing.T, server *rpc.Server, method string, params interface{}) map[string]interface{} {

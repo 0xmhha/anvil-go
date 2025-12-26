@@ -131,10 +131,9 @@ func createChainConfig(chainID uint64) *params.ChainConfig {
 		ArrowGlacierBlock:   big.NewInt(0),
 		GrayGlacierBlock:    big.NewInt(0),
 		// Enable all EIPs from block 0
-		TerminalTotalDifficulty:       big.NewInt(0),
-		TerminalTotalDifficultyPassed: true,
-		ShanghaiTime:                  new(uint64),
-		CancunTime:                    new(uint64),
+		TerminalTotalDifficulty: big.NewInt(0),
+		ShanghaiTime:            new(uint64),
+		CancunTime:              new(uint64),
 	}
 }
 

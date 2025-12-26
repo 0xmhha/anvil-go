@@ -253,5 +253,5 @@ func createTestBlock(t *testing.T, number uint64, parentHash common.Hash) *types
 		Coinbase:   common.HexToAddress("0x0000000000000000000000000000000000000000"),
 	}
 
-	return types.NewBlock(header, nil, nil, nil, nil)
+	return types.NewBlock(header, nil, nil, nil)
 }

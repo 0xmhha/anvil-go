@@ -180,7 +180,7 @@ func (t *CallTracer) CaptureState(pc uint64, op vm.OpCode, gas, cost uint64, sco
 
 		data := make([]byte, mSize)
 		if mSize > 0 {
-			copy(data, scope.Memory.GetCopy(int64(mStart), int64(mSize)))
+			copy(data, scope.Memory.GetCopy(mStart, mSize))
 		}
 
 		log := CallLog{

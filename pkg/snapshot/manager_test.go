@@ -40,7 +40,7 @@ func createGenesisBlock() *types.Block {
 		Coinbase:   common.HexToAddress("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"),
 	}
 	hasher := trie.NewStackTrie(nil)
-	return types.NewBlock(header, nil, nil, nil, hasher)
+	return types.NewBlock(header, nil, nil, hasher)
 }
 
 func TestNewManager(t *testing.T) {
@@ -185,7 +185,7 @@ func TestSnapshot_BlockNumberTracking(t *testing.T) {
 		Coinbase:   common.HexToAddress("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"),
 	}
 	hasher := trie.NewStackTrie(nil)
-	block := types.NewBlock(header, nil, nil, nil, hasher)
+	block := types.NewBlock(header, nil, nil, hasher)
 	chain.AddBlock(block)
 
 	assert.Equal(t, uint64(1), chain.BlockNumber())
