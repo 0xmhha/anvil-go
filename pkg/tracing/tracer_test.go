@@ -240,9 +240,12 @@ func TestCallTracer_Reset(t *testing.T) {
 
 func TestCallFrame_ToJSON(t *testing.T) {
 	frame := CallFrame{
-		Type:    "CALL",
-		From:    common.HexToAddress("0x1111111111111111111111111111111111111111"),
-		To:      func() *common.Address { a := common.HexToAddress("0x2222222222222222222222222222222222222222"); return &a }(),
+		Type: "CALL",
+		From: common.HexToAddress("0x1111111111111111111111111111111111111111"),
+		To: func() *common.Address {
+			a := common.HexToAddress("0x2222222222222222222222222222222222222222")
+			return &a
+		}(),
 		Gas:     100000,
 		GasUsed: 21000,
 		Input:   []byte{0x01, 0x02},

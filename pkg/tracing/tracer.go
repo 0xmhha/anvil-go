@@ -37,17 +37,17 @@ type CallFrame struct {
 
 // internalFrame is used internally during tracing.
 type internalFrame struct {
-	typ      vm.OpCode
-	from     common.Address
-	to       *common.Address
-	value    *big.Int
-	gas      uint64
-	gasUsed  uint64
-	input    []byte
-	output   []byte
-	err      error
-	calls    []internalFrame
-	logs     []CallLog
+	typ     vm.OpCode
+	from    common.Address
+	to      *common.Address
+	value   *big.Int
+	gas     uint64
+	gasUsed uint64
+	input   []byte
+	output  []byte
+	err     error
+	calls   []internalFrame
+	logs    []CallLog
 }
 
 func (f *internalFrame) toCallFrame() CallFrame {

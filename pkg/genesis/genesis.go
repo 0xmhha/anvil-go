@@ -10,15 +10,16 @@ import (
 	"github.com/ethereum/go-ethereum/core"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/params"
-	"github.com/stable-net/anvil-go/pkg/config"
 	"github.com/tyler-smith/go-bip39"
+
+	"github.com/stable-net/anvil-go/pkg/config"
 )
 
 // System contract addresses (StableNet specific).
 var (
-	GovValidatorAddress     = common.HexToAddress("0x0000000000000000000000000000000000000100")
-	GovMinterAddress        = common.HexToAddress("0x0000000000000000000000000000000000000101")
-	GovMasterMinterAddress  = common.HexToAddress("0x0000000000000000000000000000000000000102")
+	GovValidatorAddress      = common.HexToAddress("0x0000000000000000000000000000000000000100")
+	GovMinterAddress         = common.HexToAddress("0x0000000000000000000000000000000000000101")
+	GovMasterMinterAddress   = common.HexToAddress("0x0000000000000000000000000000000000000102")
 	NativeCoinAdapterAddress = common.HexToAddress("0x0000000000000000000000000000000000000103")
 )
 
@@ -115,20 +116,20 @@ func CreateGenesis(cfg *config.Config) (*core.Genesis, []*Account, error) {
 // createChainConfig creates a chain configuration for the simulator.
 func createChainConfig(chainID uint64) *params.ChainConfig {
 	return &params.ChainConfig{
-		ChainID:                       big.NewInt(int64(chainID)),
-		HomesteadBlock:                big.NewInt(0),
-		EIP150Block:                   big.NewInt(0),
-		EIP155Block:                   big.NewInt(0),
-		EIP158Block:                   big.NewInt(0),
-		ByzantiumBlock:                big.NewInt(0),
-		ConstantinopleBlock:           big.NewInt(0),
-		PetersburgBlock:               big.NewInt(0),
-		IstanbulBlock:                 big.NewInt(0),
-		MuirGlacierBlock:              big.NewInt(0),
-		BerlinBlock:                   big.NewInt(0),
-		LondonBlock:                   big.NewInt(0),
-		ArrowGlacierBlock:             big.NewInt(0),
-		GrayGlacierBlock:              big.NewInt(0),
+		ChainID:             big.NewInt(int64(chainID)),
+		HomesteadBlock:      big.NewInt(0),
+		EIP150Block:         big.NewInt(0),
+		EIP155Block:         big.NewInt(0),
+		EIP158Block:         big.NewInt(0),
+		ByzantiumBlock:      big.NewInt(0),
+		ConstantinopleBlock: big.NewInt(0),
+		PetersburgBlock:     big.NewInt(0),
+		IstanbulBlock:       big.NewInt(0),
+		MuirGlacierBlock:    big.NewInt(0),
+		BerlinBlock:         big.NewInt(0),
+		LondonBlock:         big.NewInt(0),
+		ArrowGlacierBlock:   big.NewInt(0),
+		GrayGlacierBlock:    big.NewInt(0),
 		// Enable all EIPs from block 0
 		TerminalTotalDifficulty:       big.NewInt(0),
 		TerminalTotalDifficultyPassed: true,

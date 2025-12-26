@@ -247,7 +247,7 @@ func createTestBlock(t *testing.T, number uint64, parentHash common.Hash) *types
 	header := &types.Header{
 		ParentHash: parentHash,
 		Number:     big.NewInt(int64(number)),
-		Time:       uint64(1700000000 + number),
+		Time:       1700000000 + number,
 		GasLimit:   30000000,
 		Difficulty: big.NewInt(1),
 		Coinbase:   common.HexToAddress("0x0000000000000000000000000000000000000000"),

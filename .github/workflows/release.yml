@@ -54,23 +54,23 @@ jobs:
 
           # Linux AMD64
           GOOS=linux GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
-            -o dist/anvil-go-linux-amd64 ./cmd/anvil-go
+            -o dist/anvil-go-linux-amd64 ./cmd/anvil
 
           # Linux ARM64
           GOOS=linux GOARCH=arm64 go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
-            -o dist/anvil-go-linux-arm64 ./cmd/anvil-go
+            -o dist/anvil-go-linux-arm64 ./cmd/anvil
 
           # macOS AMD64
           GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
-            -o dist/anvil-go-darwin-amd64 ./cmd/anvil-go
+            -o dist/anvil-go-darwin-amd64 ./cmd/anvil
 
           # macOS ARM64 (Apple Silicon)
           GOOS=darwin GOARCH=arm64 go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
-            -o dist/anvil-go-darwin-arm64 ./cmd/anvil-go
+            -o dist/anvil-go-darwin-arm64 ./cmd/anvil
 
           # Windows AMD64
           GOOS=windows GOARCH=amd64 go build -ldflags="-s -w -X main.version=${{ steps.version.outputs.VERSION }}" \
-            -o dist/anvil-go-windows-amd64.exe ./cmd/anvil-go
+            -o dist/anvil-go-windows-amd64.exe ./cmd/anvil
 
       - name: Create checksums
         run: |

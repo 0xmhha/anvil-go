@@ -13,6 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
+
 	"github.com/stable-net/anvil-go/pkg/blockchain"
 	"github.com/stable-net/anvil-go/pkg/cheats"
 	"github.com/stable-net/anvil-go/pkg/miner"
@@ -47,10 +48,10 @@ type Request struct {
 
 // Response represents a JSON-RPC response.
 type Response struct {
-	Jsonrpc string        `json:"jsonrpc"`
-	ID      interface{}   `json:"id"`
-	Result  interface{}   `json:"result,omitempty"`
-	Error   *ErrorObject  `json:"error,omitempty"`
+	Jsonrpc string       `json:"jsonrpc"`
+	ID      interface{}  `json:"id"`
+	Result  interface{}  `json:"result,omitempty"`
+	Error   *ErrorObject `json:"error,omitempty"`
 }
 
 // ErrorObject represents a JSON-RPC error.
@@ -61,15 +62,15 @@ type ErrorObject struct {
 
 // Server implements an Ethereum JSON-RPC server.
 type Server struct {
-	chain           *blockchain.Chain
-	pool            *txpool.InMemoryPool
-	stateManager    *state.InMemoryManager
-	miner           *miner.SimpleMiner
-	cheats          *cheats.Manager
-	snapshots       *snapshot.Manager
-	validators      *stablenet.ValidatorManager
-	stablecoin      *stablenet.StablecoinManager
-	chainID         *big.Int
+	chain        *blockchain.Chain
+	pool         *txpool.InMemoryPool
+	stateManager *state.InMemoryManager
+	miner        *miner.SimpleMiner
+	cheats       *cheats.Manager
+	snapshots    *snapshot.Manager
+	validators   *stablenet.ValidatorManager
+	stablecoin   *stablenet.StablecoinManager
+	chainID      *big.Int
 
 	accounts    []common.Address
 	privateKeys map[common.Address][]byte
@@ -740,7 +741,7 @@ func (s *Server) anvilAutoImpersonateAccount(params json.RawMessage) (interface{
 func (s *Server) anvilMine(params json.RawMessage) (interface{}, *ErrorObject) {
 	count := uint64(1)
 
-	if params != nil && len(params) > 0 {
+	if len(params) > 0 {
 		var args []interface{}
 		if err := json.Unmarshal(params, &args); err == nil && len(args) > 0 {
 			if countStr, ok := args[0].(string); ok {
@@ -1265,7 +1266,7 @@ func (s *Server) stablenetGetStablecoinTotalSupply() (interface{}, *ErrorObject)
 
 // TraceConfig holds configuration for tracing operations.
 type TraceConfig struct {
-	Tracer      string          `json:"tracer,omitempty"`
+	Tracer       string          `json:"tracer,omitempty"`
 	TracerConfig json.RawMessage `json:"tracerConfig,omitempty"`
 }
 

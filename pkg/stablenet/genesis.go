@@ -4,16 +4,17 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
+
 	"github.com/stable-net/anvil-go/pkg/state"
 )
 
 // CoinConfig holds configuration for the native stablecoin.
 type CoinConfig struct {
-	Name         string
-	Symbol       string
-	Decimals     uint8
-	Currency     string
-	MasterMinter common.Address
+	Name          string
+	Symbol        string
+	Decimals      uint8
+	Currency      string
+	MasterMinter  common.Address
 	InitialSupply *big.Int
 }
 

@@ -122,7 +122,7 @@ func (c *Config) Validate() error {
 	}
 
 	if !validMiningModes[c.MiningMode] {
-		errs = append(errs, fmt.Sprintf("miningMode must be one of: auto, interval, manual"))
+		errs = append(errs, "miningMode must be one of: auto, interval, manual")
 	}
 
 	if c.Mnemonic != "" && !bip39.IsMnemonicValid(c.Mnemonic) {

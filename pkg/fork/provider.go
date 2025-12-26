@@ -16,10 +16,10 @@ import (
 
 // Common errors.
 var (
-	ErrNoForkURL     = errors.New("no fork URL configured")
-	ErrForkFailed    = errors.New("failed to fetch from fork")
-	ErrInvalidBlock  = errors.New("invalid block number")
-	ErrNotConnected  = errors.New("not connected to fork")
+	ErrNoForkURL    = errors.New("no fork URL configured")
+	ErrForkFailed   = errors.New("failed to fetch from fork")
+	ErrInvalidBlock = errors.New("invalid block number")
+	ErrNotConnected = errors.New("not connected to fork")
 )
 
 // RPCClient is an interface for making JSON-RPC calls.
@@ -43,10 +43,10 @@ type Provider struct {
 	chainID     *big.Int
 
 	// State cache
-	balances  map[common.Address]*big.Int
-	nonces    map[common.Address]uint64
-	codes     map[common.Address][]byte
-	storage   map[common.Address]map[common.Hash]common.Hash
+	balances map[common.Address]*big.Int
+	nonces   map[common.Address]uint64
+	codes    map[common.Address][]byte
+	storage  map[common.Address]map[common.Hash]common.Hash
 
 	connected bool
 	mu        sync.RWMutex

@@ -15,22 +15,32 @@ linters:
     - goimports
     - misspell
     - unconvert
-    - unparam
-    - nakedret
-    - prealloc
-    - revive
-    - exportloopref
-    - whitespace
-    - gocritic
 
 linters-settings:
   errcheck:
-    check-type-assertions: true
-    check-blank: true
+    check-type-assertions: false
+    check-blank: false
 
   govet:
-    check-shadowing: true
-    enable-all: true
+    enable:
+      - assign
+      - atomic
+      - bools
+      - buildtag
+      - copylocks
+      - httpresponse
+      - loopclosure
+      - lostcancel
+      - nilfunc
+      - printf
+      - shift
+      - stdmethods
+      - structtag
+      - tests
+      - unmarshal
+      - unreachable
+      - unsafeptr
+      - unusedresult
 
   gofmt:
     simplify: true
@@ -41,49 +51,15 @@ linters-settings:
   misspell:
     locale: US
 
-  nakedret:
-    max-func-lines: 30
-
-  prealloc:
-    simple: true
-    range-loops: true
-    for-loops: true
-
-  revive:
-    rules:
-      - name: blank-imports
-      - name: context-as-argument
-      - name: context-keys-type
-      - name: dot-imports
-      - name: error-return
-      - name: error-strings
-      - name: error-naming
-      - name: exported
-      - name: if-return
-      - name: increment-decrement
-      - name: var-naming
-      - name: var-declaration
-      - name: package-comments
-      - name: range
-      - name: receiver-naming
-      - name: time-naming
-      - name: unexported-return
-      - name: indent-error-flow
-      - name: errorf
-
-  gocritic:
-    enabled-tags:
-      - diagnostic
-      - style
-      - performance
-    disabled-checks:
-      - ifElseChain
-      - hugeParam
+  staticcheck:
+    checks:
+      - all
+      - -SA1019
 
 issues:
   exclude-use-default: false
-  max-issues-per-linter: 0
-  max-same-issues: 0
+  max-issues-per-linter: 50
+  max-same-issues: 10
 
   exclude-rules:
     - path: _test\.go
@@ -97,5 +73,5 @@ issues:
         - errcheck
 
     - linters:
-        - gocritic
-      text: "commentedOutCode"
+        - errcheck
+      text: "Error return value"

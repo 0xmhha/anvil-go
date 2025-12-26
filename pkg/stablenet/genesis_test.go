@@ -5,9 +5,10 @@ import (
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/stable-net/anvil-go/pkg/state"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/stable-net/anvil-go/pkg/state"
 )
 
 func TestDefaultCoinConfig(t *testing.T) {

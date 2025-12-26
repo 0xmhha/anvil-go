@@ -13,6 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/trie"
+
 	"github.com/stable-net/anvil-go/pkg/blockchain"
 	"github.com/stable-net/anvil-go/pkg/miner"
 	"github.com/stable-net/anvil-go/pkg/rpc"
